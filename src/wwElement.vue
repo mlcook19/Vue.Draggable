@@ -1,17 +1,18 @@
 <template>
-  <component 
-    :is="content.tag || 'div'" 
+  <div 
     class="ww-draggable"
     :class="{ 'ww-draggable--horizontal': content.direction === 'horizontal' }"
   >
-    <wwLayout
-      :path="content.list"
-      :direction="content.direction === 'horizontal' ? 'row' : 'column'"
-      @update:list="handleListUpdate"
-    >
-      <slot></slot>
-    </wwLayout>
-  </component>
+    <component :is="content.tag || 'div'" class="ww-draggable-container">
+      <wwLayout
+        :list="content.list"
+        :direction="content.direction === 'horizontal' ? 'row' : 'column'"
+        @update:list="handleListUpdate"
+      >
+        <slot></slot>
+      </wwLayout>
+    </component>
+  </div>
 </template>
 
 <script>
@@ -24,6 +25,7 @@ export default {
     wwElementState: { type: Object, required: true },
     wwEditorState: { type: Object, required: false }
   },
+  emits: ['update:content'],
   methods: {
     handleListUpdate(newList) {
       this.$emit('update:content', {
@@ -41,10 +43,17 @@ export default {
   min-height: 50px;
   position: relative;
 
+  &-container {
+    width: 100%;
+    height: 100%;
+  }
+
   &--horizontal {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    .ww-draggable-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
   }
 }
 </style> 

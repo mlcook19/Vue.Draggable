@@ -2,6 +2,10 @@ export default {
   editor: {
     label: {
       en: "Draggable Container",
+    },
+    icon: 'move',
+    bubble: {
+      icon: 'move'
     }
   },
   properties: {
@@ -12,14 +16,16 @@ export default {
       type: "Array",
       defaultValue: [],
       bindable: true,
+      section: 'settings',
       hidden: true // Since we'll handle the list through drag & drop
     },
     tag: {
       label: {
         en: "Container Tag",
       }, 
-      type: "Text",
+      type: "TextSelect",
       defaultValue: "div",
+      section: 'settings',
       options: {
         options: [
           { value: "div", label: { en: "div" }},
@@ -34,6 +40,7 @@ export default {
       },
       type: "TextSelect",
       defaultValue: "vertical",
+      section: 'settings',
       options: {
         options: [
           { value: "vertical", label: { en: "Vertical" }},
