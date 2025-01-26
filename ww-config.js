@@ -6,7 +6,10 @@ export default {
     icon: 'move',
     bubble: {
       icon: 'move'
-    }
+    },
+    preventInteractions: false,
+    navigateToContent: true,
+    customSettingsProhibited: false
   },
   properties: {
     list: {
@@ -17,7 +20,11 @@ export default {
       defaultValue: [],
       bindable: true,
       section: 'settings',
-      hidden: true // Since we'll handle the list through drag & drop
+      hidden: false,
+      item: {
+        type: 'Object',
+        defaultValue: {}
+      }
     },
     tag: {
       label: {
@@ -47,6 +54,27 @@ export default {
           { value: "horizontal", label: { en: "Horizontal" }}
         ]
       }
+    },
+    editorActive: {
+      hidden: true,
+      defaultValue: false,
+      type: 'Boolean'
     }
+  },
+  events: {
+    'drag:start': {
+      label: {
+        en: 'On drag start'
+      }
+    },
+    'drag:end': {
+      label: {
+        en: 'On drag end'
+      }
+    }
+  },
+  settingsOptions: {
+    disableDrag: true,
+    disableDrop: true
   }
 }; 
