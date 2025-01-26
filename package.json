@@ -9,12 +9,14 @@
     "serve": "weweb serve"
   },
   "dependencies": {
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "sortablejs": "^1.15.0"
   },
   "devDependencies": {
     "@weweb/cli": "latest"
   },
   "webComponents": {
-    "type": "element"
+    "type": "element",
+    "loadingType": "promise"
   }
 }
