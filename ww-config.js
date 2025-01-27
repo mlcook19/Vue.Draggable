@@ -73,8 +73,21 @@ export default {
       }
     }
   },
-  settingsOptions: {
-    disableDrag: true,
-    disableDrop: true
+  componentType: 'element',
+  componentName: 'draggable',
+  version: '1.0.0',
+  loading: {
+    type: 'promise',
+    dependencies: ['sortablejs']
+  },
+  access: {
+    public: true
+  },
+  build: {
+    externals: ['vue', 'sortablejs'],
+    input: './src/wwElement.vue',
+    output: {
+      format: 'esm'
+    }
   }
 }; 

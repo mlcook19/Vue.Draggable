@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "build": "weweb build",
-    "serve": "weweb serve"
+    "serve": "weweb serve",
+    "publish:ww": "weweb publish"
   },
   "dependencies": {
     "vue": "^3.0.0",
@@ -18,5 +19,14 @@
   "webComponents": {
     "type": "element",
     "loadingType": "promise"
-  }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.weweb.io/"
+  },
+  "files": [
+    "dist",
+    "src",
+    "ww-config.js"
+  ]
 }
